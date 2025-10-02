@@ -1,0 +1,39 @@
+{
+    "name": "quickpanel/platform",
+    "description": "QuickPanel Platform to make Admin Panel in seconds.",
+    "type": "library",
+    "version": "1.0.0",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "QuickPanel\\Platform\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ali Qasemzadeh",
+            "email": "aliqasemzadeh7@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/support": "^12.32",
+        "elegantly/livewire-modal": "^1.0",
+        "livewire/livewire": "^3.6",
+        "masmerise/livewire-toaster": "^2.8",
+        "opcodesio/log-viewer": "^3.19",
+        "power-components/livewire-powergrid": "^6.6",
+        "laravel/socialite": "^5.23",
+        "mews/captcha": "^3.4",
+        "spatie/laravel-permission": "^6.21"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "QuickPanel\\Platform\\QuickPanelPlatformServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
