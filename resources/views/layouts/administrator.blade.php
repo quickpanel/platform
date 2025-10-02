@@ -50,11 +50,11 @@
                 @include('platform::layouts.global.search')
             </div>
             <div class="flex items-center lg:order-2">
+                @include('platform::layouts.global.theme')
                 <a href="{{ route('administrator.auth.logout') }}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 me-2 dark:focus:ring-yellow-900 flex flex-row items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out-icon lucide-log-out w-4 h-4 md:w-5 md:h-5"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>
                     <span class="hidden md:inline">{{ __('platform::common.logout') }}</span>
                 </a>
-                @include('platform::layouts.global.user')
             </div>
         </div>
     </nav>
