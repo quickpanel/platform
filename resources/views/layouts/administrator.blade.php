@@ -44,7 +44,7 @@
                     <span class="sr-only">Toggle sidebar</span>
                 </button>
                 <a href="{{ route('home') }}" class="flex items-center justify-between mr-4">
-                    @includeIf('platform::layouts.global.logo', ['class' => 'mr-3 h-8', 'width' => '32px', 'height' => '32px'])
+                    @includeIf(config('platform.logo_svg_blade'), ['class' => 'mr-3 h-8', 'width' => '32px', 'height' => '32px'])
                     <span class="hidden md:inline self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ config('app.name') }}</span>
                 </a>
                 @include('platform::layouts.global.search')
