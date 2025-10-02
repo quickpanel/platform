@@ -13,7 +13,6 @@
             </a>
             <div class="flex items-center lg:order-2">
                 @includeIf('platform::layouts.global.theme')
-                @includeIf('platform::layouts.global.action')
             </div>
         </div>
     </nav>
