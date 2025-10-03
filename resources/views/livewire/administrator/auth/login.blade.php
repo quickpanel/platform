@@ -2,8 +2,8 @@
     {{ __('platform::common.login') }}
 </x-slot>
 <form class="mt-4 space-y-4 sm:mt-6 sm:space-y-6" wire:submit="login">
-    <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-        <div>
+    <div class="flex flex-col">
+        <div class="mb-3">
             <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">{{ __('Email') }}</label>
             <input
                 type="email"
@@ -17,7 +17,7 @@
             <p class="mt-1 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
             @enderror
         </div>
-        <div>
+        <div class="mb-3">
             <label for="password" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">{{ __('Password') }}</label>
             <input
                 type="password"
