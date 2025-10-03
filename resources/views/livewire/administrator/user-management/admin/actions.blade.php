@@ -27,5 +27,5 @@
             wire:click="deleteAdmin({{ $admin->id }})">
         {{ __('platform::common.delete') }}
     </button>
-    @includeIf('quick-panel.administrator.user-management.admin.actions')
+    @includeIf('quick-panel.administrator.user-management.admin.actions', ['admin' => $admin])
 </div>

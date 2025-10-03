@@ -12,4 +12,6 @@
         </div>
         {{ __('platform::common.update_permissions') }}
     </button>
+
+    @includeIf('quick-panel.administrator.setting-management.function.actions')
 </div>

@@ -16,5 +16,5 @@
     </button>
     @endcan
 
-    @includeIf('quick-panel.administrator.user-management.permission.actions')
+    @includeIf('quick-panel.administrator.user-management.permission.actions', ['permission' => $permission])
 </div>
