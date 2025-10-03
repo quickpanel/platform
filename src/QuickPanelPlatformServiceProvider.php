@@ -75,6 +75,7 @@ class QuickPanelPlatformServiceProvider extends ServiceProvider
                 Console\Commands\CreatePermissionsCommand::class,
                 Console\Commands\CreateRolesCommand::class,
                 Console\Commands\QuickSetupCommand::class,
+                Console\Commands\InstallCommand::class,
                 Console\Commands\SetUserAdminCommand::class,
             ]);
         }
