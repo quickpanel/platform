@@ -28,5 +28,5 @@
         {{ __('platform::common.delete') }}
     </button>
 
-    @includeIf('quick-panel.administrator.user-management.user.actions')
+    @includeIf('quick-panel.administrator.user-management.user.actions', ['user' => $user])
 </div>

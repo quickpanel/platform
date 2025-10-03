@@ -32,5 +32,5 @@
     </button>
     @endcan
 
-    @includeIf('quick-panel.administrator.user-management.role.actions')
+    @includeIf('quick-panel.administrator.user-management.role.actions', ['role' => $role])
 </div>
