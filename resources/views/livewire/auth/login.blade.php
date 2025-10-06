@@ -53,33 +53,6 @@
             @enderror
         </div>
     </div>
-    <div>
-            <label for="captcha" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">{{ __('platform::common.captcha') }}</label>
-            <div class="flex flex-row">
-                <!-- Captcha input -->
-
-                    <input
-                        type="text"
-                        id="captcha"
-                        class="block w-full text-sm font-medium text-gray-900 border border-gray-300 rounded-s-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('captcha') border-red-500 focus:border-red-500 focus:ring-red-500 @enderror"
-                        placeholder="{{ __('platform::common.captcha') }}"
-                        wire:model="captcha"
-                        required />
-
-                    <img src="{{ $captchaSrc }}" class="h-10 w-full object-fill border-t border-b border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" alt="captcha" />
-
-
-                    <button type="button" wire:click="refreshCaptcha" class="basis-sm inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 border border-gray-300  rounded-e-lg dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 dark:text-white object-contain">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7 7 0 111.528 9.8 1 1 0 011.28-1.536A5 5 0 108 5.101V7a1 1 0 11-2 0V3a1 1 0 011-1h3a1 1 0 110 2H6.874A7.002 7.002 0 004 2z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-
-            </div>
-            @error('captcha')
-            <p class="mt-1 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
-            @enderror
-    </div>
     <div class="flex items-center justify-between">
         <div class="flex items-center">
             <input

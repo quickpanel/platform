@@ -11,16 +11,13 @@ class Login extends Component
 {
     public string $email = '';
     public string $password = '';
-    public string $captcha = '';
     public bool $remember = false;
-    public string $captchaSrc = '';
 
     protected function rules(): array
     {
         return [
             'email' => ['required', 'email'],
-            'password' => ['required', 'string'],
-            'captcha' => ['required', 'string', 'captcha'],
+            'password' => ['required', 'string', 'required_if:remember,true'],
             'remember' => ['boolean'],
         ];
     }
@@ -28,13 +25,6 @@ class Login extends Component
     public function mount(): void
     {
         $this->refreshCaptcha();
-    }
-
-    public function refreshCaptcha(): void
-    {
-        // Generate a fresh captcha image source and clear the input value
-        $this->captchaSrc = captcha_src();
-        $this->captcha = '';
     }
 
     public function login()
