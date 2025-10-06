@@ -22,11 +22,6 @@ class Login extends Component
         ];
     }
 
-    public function mount(): void
-    {
-        $this->refreshCaptcha();
-    }
-
     public function login()
     {
         $validated = $this->validate();
