@@ -55,6 +55,31 @@ class CreatePermissionsCommand extends Command
             $administrator->givePermissionTo($permission);
         }
 
+        // Custom Permissions User
+        $custom_permissions_user = __('quick-panel.permissions.user');
+        foreach ($custom_permissions_user as $permission => $translate) {
+            Permission::create(
+                ['name' => $permission]
+            );
+        }
+
+        foreach ($permissions_user as $permission => $translate) {
+            $user->givePermissionTo($permission);
+        }
+
+        // Custom Permissions Administrator
+        $permissions_administrator = __('quick-panel.permissions.administrator');
+
+        foreach ($permissions_administrator as $permission => $translate) {
+            Permission::create(
+                ['name' => $permission, 'guard_name' => 'admin']
+            );
+        }
+
+        foreach ($permissions_administrator as $permission => $translate) {
+            $administrator->givePermissionTo($permission);
+        }
+
 
     }
 }

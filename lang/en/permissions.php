@@ -65,6 +65,5 @@ return [
 
         'administrator_setting_option_index' => 'Administrator Setting Management Option Index',
         'administrator_setting_function_index' => 'Administrator Setting Management Function Index',
-
     ],
 ];
