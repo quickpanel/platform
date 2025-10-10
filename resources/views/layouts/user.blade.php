@@ -188,6 +188,6 @@
     </main>
 </div>
 
-@include('platform::layouts.partials.heads')
+@include('platform::layouts.partials.foots')
 </body>
 </html>
