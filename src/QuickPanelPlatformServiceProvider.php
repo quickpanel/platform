@@ -16,12 +16,10 @@ class QuickPanelPlatformServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Routes
-        Route::middleware('web')->group(function () {
-            $this->loadRoutesFrom(__DIR__.'/../routes/front.php');
-            $this->loadRoutesFrom(__DIR__.'/../routes/auth.php');
-            $this->loadRoutesFrom(__DIR__.'/../routes/user.php');
-            $this->loadRoutesFrom(__DIR__.'/../routes/admin.php');
-        });
+        $this->loadRoutesFrom(__DIR__.'/../routes/front.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/auth.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/user.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/admin.php');
 
 
         // Views

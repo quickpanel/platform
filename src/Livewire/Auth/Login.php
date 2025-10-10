@@ -17,7 +17,7 @@ class Login extends Component
     {
         return [
             'email' => ['required', 'email'],
-            'password' => ['required', 'string', 'required_if:remember,true'],
+            'password' => ['required', 'string'],
             'remember' => ['boolean'],
         ];
     }
