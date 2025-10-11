@@ -13,7 +13,7 @@ class Logout extends Component
      */
     public function mount()
     {
-        if (! Auth::check()) {
+        if (! Auth::guard('web')->check()) {
             // If already logged out, just go to login page
             return redirect()->to(route('login'));
         }
@@ -24,7 +24,7 @@ class Logout extends Component
      */
     public function confirmLogout()
     {
-        Auth::logout();
+        Auth::guard('web')->logout();
 
         // Invalidate and regenerate session for security
         request()->session()->invalidate();

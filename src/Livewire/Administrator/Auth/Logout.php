@@ -15,7 +15,7 @@ class Logout extends Component
     {
         if (! Auth::guard('admin')->check()) {
             // If already logged out, just go to login page
-            return redirect()->to(route('login'));
+            return redirect()->to(route('administrator.auth.login'));
         }
     }
 
@@ -34,7 +34,7 @@ class Logout extends Component
         session()->flash('success', __('platform::common.logged_out'));
 
         // Redirect to login or home page
-        return redirect()->to(route('login'));
+        return redirect()->to(route('administrator.auth.login'));
     }
 
     #[Layout('platform::layouts.auth')]
