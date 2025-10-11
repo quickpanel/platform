@@ -31,7 +31,7 @@ class Login extends Component
             'password' => $validated['password'],
         ];
 
-        if (! Auth::attempt($credentials, $this->remember)) {
+        if (! Auth::guard('web')->attempt($credentials, $this->remember)) {
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);

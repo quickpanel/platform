@@ -16,7 +16,7 @@ if (config('platform.enable_user')) {
             Route::any('/auth/github/callback', [\QuickPanel\Platform\Http\Controllers\Auth\GithubController::class, 'handleGithubCallback'])->name('auth.github.callback');
         });
 
-        Route::middleware('auth')->group(function () {
+        Route::middleware('auth:web')->group(function () {
             Route::get('/logout', QuickPanel\Platform\Livewire\Auth\Logout::class)->name('logout');
             Route::get('/change-password', QuickPanel\Platform\Livewire\Auth\ChangePassword::class)->name('change-password');
             Route::get('/verify-email', QuickPanel\Platform\Livewire\Auth\VerifyEmail::class)->name('verify-email');
