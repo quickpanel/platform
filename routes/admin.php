@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 if (config('platform.enable_admin')) {
     Route::middleware('web')->group(function () {
-        Route::middleware('guest.admin')->group(function () {
+        Route::middleware(\QuickPanel\Platform\Http\Middleware\RedirectIfAuthenticatedAdminMiddleware::class)->group(function () {
             Route::get('/administrator/auth/login', QuickPanel\Platform\Livewire\Administrator\Auth\Login::class)->name('administrator.auth.login');
             Route::get('/administrator/auth/forget-password', QuickPanel\Platform\Livewire\Administrator\Auth\ForgetPassword::class)->name('administrator.auth.forget-password');
         });
