@@ -21,11 +21,19 @@
     </nav>
 </header>
 
+
 <!-- Main -->
 <main>
     <section class="bg-gray-50 dark:bg-gray-900">
-        <div class="mx-auto grid h-screen max-w-screen-xl  px-4 py-2.5">
-            <div class="w-full place-self-center">
+        <div class="mx-auto grid max-w-screen-xl px-4 py-2.5">
+            <div class="w-full">
+                <nav class="flex mb-3" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                        @if(isset($breadcrumb))
+                            {{ $breadcrumb }}
+                        @endif
+                    </ol>
+                </nav>
                 {{ $slot }}
             </div>
         </div>
@@ -36,8 +44,8 @@
 <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
     <div class="mx-auto max-w-screen-xl text-center">
         <a href="{{ route('home') }}" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
-                @include(config('platform.logo_svg_blade'), ['class' => 'mr-2 h-8', 'width' => '33px', 'height' => '33px'])
-                {{ config('app.name') }}
+            @include(config('platform.logo_svg_blade'), ['class' => 'mr-2 h-8', 'width' => '33px', 'height' => '33px'])
+            {{ config('app.name') }}
         </a>
         <p class="my-6 text-gray-500 dark:text-gray-400">Open-source library of over 400+ web components and interactive elements built for better web.</p>
         <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
