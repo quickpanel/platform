@@ -7,4 +7,12 @@ return [
     'enable_auth' => true,
     'enable_admin' => true,
     'enable_user' => true,
+    'languages' => [
+        'en' => 'English',
+        'fa' => 'Persian',
+    ],
+    'types' => [
+        'ticket' => 'Ticket',
+        'article' => 'Article',
+    ]
 ];

@@ -237,6 +237,13 @@
                             >{{ __('platform::common.activity') }}</a
                             >
                         </li>
+                        <li>
+                            <a
+                                href="{{ route('log-viewer.index') }}"
+                                class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.log-management.activity.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                            >{{ __('platform::common.logs') }}</a
+                            >
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -268,8 +275,8 @@
                     <ul id="dropdown-support-management" class="py-2 space-y-2 {{ request()->routeIs('administrator.support-management.*') ? '' : ' hidden'  }}">
                         <li>
                             <a
-                                    href="{{ route('administrator.support-management.ticket.index') }}"
-                                    class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.support-management.ticket.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                                href="{{ route('administrator.support-management.ticket.index') }}"
+                                class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.support-management.ticket.index') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
                             >{{ __('platform::common.tickets') }}</a
                             >
                         </li>

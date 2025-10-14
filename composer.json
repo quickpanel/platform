@@ -2,7 +2,7 @@
     "name": "quickpanel/platform",
     "description": "QuickPanel Platform to make Admin Panel in seconds.",
     "type": "library",
-    "version": "1.0.0",
+    "version": "dev-main",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -39,6 +39,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "matthewbdaly/artisan-standalone": "^0.0.12"
+        "matthewbdaly/artisan-standalone": "^0.0.12",
+        "orchestra/testbench": "^10.6"
     }
 }

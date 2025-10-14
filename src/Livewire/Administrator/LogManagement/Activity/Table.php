@@ -45,26 +45,33 @@ final class Table extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('id')
-            ->add('attributes')
-            ->add('old')
+            ->add('subject_type')
+            ->add('event')
+            ->add('causer_type')
+            ->add('causer_id')
+            ->add('causer_id')
             ->add('created_at_formatted', fn (Activity $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
     public function columns(): array
     {
         return [
-            Column::make(__('platform::common.id'), 'id'),
-            Column::make(__('platform::common.attributes'), 'attributes')
+            Column::make(__('platform::common.id'), 'id')
+                ->sortable(),
+            Column::make(__('platform::common.subject_type'), 'subject_type')
                 ->sortable()
                 ->searchable(),
-            Column::make(__('platform::common.old'), 'old')
+            Column::make(__('platform::common.event'), 'event')
                 ->sortable()
                 ->searchable(),
-
-
+            Column::make(__('platform::common.causer_type'), 'causer_type')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('platform::common.causer_id'), 'causer_id')
+                ->sortable()
+                ->searchable(),
             Column::make(__('platform::common.created_at'), 'created_at_formatted', 'created_at')
                 ->sortable(),
-
             Column::action(__('platform::common.action'))
         ];
     }
