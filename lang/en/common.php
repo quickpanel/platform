@@ -214,4 +214,6 @@ return [
     'updated' => 'Updated.',
     'restored' => 'Restored.',
     'relayed' => 'Relayed.',
+    'unread_tickets' => 'Unread Tickets',
+    'view_ticket' => 'View Ticket',
 ];

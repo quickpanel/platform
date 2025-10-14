@@ -1,3 +1,6 @@
+<x-slot name="title">
+    {{ __('platform::common.unread_tickets') }}
+</x-slot>
 <div>
-    {{-- Be like water. --}}
+    <livewire:platform.administrator.support-management.ticket.unread-table/>
 </div>

@@ -1,3 +1,6 @@
+<x-slot name="title">
+    {{ __('platform::common.tickets') }}
+</x-slot>
 <div>
-    {{-- The whole world belongs to you. --}}
+    <livewire:platform.administrator.support-management.ticket.table/>
 </div>

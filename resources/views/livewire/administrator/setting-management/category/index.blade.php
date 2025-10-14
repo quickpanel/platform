@@ -1,3 +1,6 @@
+<x-slot name="title">
+    {{ __('platform::common.categories') }}
+</x-slot>
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+    <livewire:platform.administrator.support-management.category.table/>
 </div>
