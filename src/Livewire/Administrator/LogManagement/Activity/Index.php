@@ -10,6 +10,6 @@ class Index extends Component
     #[Layout('platform::layouts.administrator')]
     public function render()
     {
-        return view('platform::livewire.administrator.log-management.index');
+        return view('platform::livewire.administrator.log-management.activity.index');
     }
 }
