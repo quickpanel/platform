@@ -204,4 +204,8 @@ return [
     'edit_admin' => 'Edit Admin',
     'admin_created' => 'Admin Created',
     'admin_edited' => 'Admin Updated',
+    'activity' => 'Activity',
+    'log_management' => 'Log Management',
+    'attributes' => 'Attributes',
+    'old' => 'Old',
 ];
