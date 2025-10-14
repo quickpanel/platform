@@ -3,12 +3,8 @@
 namespace QuickPanel\Platform\Livewire\Administrator\LogManagement\Activity;
 
 use Illuminate\View\View;
-use QuickPanel\Platform\Models\Admin;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
-use Livewire\Attributes\On;
-use Masmerise\Toaster\Toaster;
-use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Facades\Filter;
 use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
@@ -51,7 +47,7 @@ final class Table extends PowerGridComponent
             ->add('id')
             ->add('attributes')
             ->add('old')
-            ->add('created_at_formatted', fn (Admin $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->add('created_at_formatted', fn (Activity $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
     public function columns(): array
