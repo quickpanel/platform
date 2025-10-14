@@ -25,6 +25,7 @@ if (config('platform.enable_admin')) {
 
             Route::get('/administrator/setting-management/option/index', QuickPanel\Platform\Livewire\Administrator\SettingManagement\Option\Index::class)->name('administrator.setting-management.option.index');
             Route::get('/administrator/setting-management/function/index', QuickPanel\Platform\Livewire\Administrator\SettingManagement\Function\Index::class)->name('administrator.setting-management.function.index');
+            Route::get('/administrator/setting-management/category/index', QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Index::class)->name('administrator.setting-management.category.index');
         });
     });
 }

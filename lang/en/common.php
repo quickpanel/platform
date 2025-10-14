@@ -208,4 +208,10 @@ return [
     'log_management' => 'Log Management',
     'attributes' => 'Attributes',
     'old' => 'Old',
+    'status' => 'Status',
+    'deleted' => 'Deleted.',
+    'created' => 'Created.',
+    'updated' => 'Updated.',
+    'restored' => 'Restored.',
+    'relayed' => 'Relayed.',
 ];
