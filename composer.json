@@ -25,7 +25,8 @@
         "power-components/livewire-powergrid": "^6.6",
         "laravel/socialite": "^5.23",
         "spatie/laravel-permission": "^6.21",
-        "spatie/laravel-activitylog": "^4.10"
+        "spatie/laravel-activitylog": "^4.10",
+        "mallardduck/blade-lucide-icons": "^1.23"
     },
     "extra": {
         "laravel": {

@@ -243,6 +243,49 @@
                     <button
                             type="button"
                             class="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            aria-controls="dropdown-support-management"
+                            data-collapse-toggle="dropdown-support-management"
+                    >
+                        <x-dynamic-component component="lucide-life-buoy"  class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></x-dynamic-component>
+                        <span class="flex-1 ms-3 text-start whitespace-nowrap"
+                        >{{ __('platform::common.support_management') }}</span
+                        >
+                        <svg
+                                aria-hidden="true"
+
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                            ></path>
+                        </svg>
+
+                    </button>
+                    <ul id="dropdown-support-management" class="py-2 space-y-2 {{ request()->routeIs('administrator.support-management.*') ? '' : ' hidden'  }}">
+                        <li>
+                            <a
+                                    href="{{ route('administrator.support-management.ticket.index') }}"
+                                    class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.support-management.ticket.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                            >{{ __('platform::common.tickets') }}</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                    href="{{ route('administrator.support-management.ticket.unread') }}"
+                                    class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.support-management.ticket.unread') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                            >{{ __('platform::common.unread') }}</a
+                            >
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button
+                            type="button"
+                            class="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                             aria-controls="dropdown-setting-management"
                             data-collapse-toggle="dropdown-setting-management"
                     >
