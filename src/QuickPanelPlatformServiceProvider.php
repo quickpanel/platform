@@ -60,6 +60,12 @@ class QuickPanelPlatformServiceProvider extends ServiceProvider
         Livewire::component('platform.administrator.user-management.user.table', \QuickPanel\Platform\Livewire\Administrator\UserManagement\User\Table::class);
         Livewire::component('platform.administrator.log-management.activity.index', \QuickPanel\Platform\Livewire\Administrator\LogManagement\Activity\Index::class);
         Livewire::component('platform.administrator.log-management.activity.table', \QuickPanel\Platform\Livewire\Administrator\LogManagement\Activity\Table::class);
+        Livewire::component('platform.administrator.support-management.ticket.index', \QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\Index::class);
+        Livewire::component('platform.administrator.support-management.ticket.view', \QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\View::class);
+        Livewire::component('platform.administrator.support-management.ticket.unread', \QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\Unread::class);
+        Livewire::component('platform.administrator.setting-management.category.create', \QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Create::class);
+        Livewire::component('platform.administrator.setting-management.category.edit', \QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Edit::class);
+        Livewire::component('platform.administrator.setting-management.category.index', \QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Index::class);
         Livewire::component('platform.auth.change-password', \QuickPanel\Platform\Livewire\Auth\ChangePassword::class);
         Livewire::component('platform.auth.forget-password', \QuickPanel\Platform\Livewire\Auth\ForgetPassword::class);
         Livewire::component('platform.auth.login', \QuickPanel\Platform\Livewire\Auth\Login::class);
