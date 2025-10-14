@@ -228,7 +228,7 @@
                             ></path>
                         </svg>
                     </button>
-                    <ul id="dropdown-setting-management"
+                    <ul id="dropdown-log-management"
                         class="py-2 space-y-2 {{ request()->routeIs('administrator.log-management.*') ? '' : ' hidden'  }}">
                         <li>
                             <a
