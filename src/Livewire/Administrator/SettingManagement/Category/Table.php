@@ -19,15 +19,15 @@ use QuickPanel\Platform\Models\Setting\Category;
 final class Table extends PowerGridComponent
 {
     use WithExport;
-    public string $tableName = 'administrator.support-management.category.table';
+    public string $tableName = 'administrator.setting-management.category.table';
 
     public function header(): array
     {
         return [
-            Button::add('create-admin')
+            Button::add('create-category')
                 ->slot(__('platform::common.create_category'))
                 ->class('text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800')
-                ->dispatch('modal-open', ['component' => 'administrator.support-management.category.create']),
+                ->dispatch('modal-open', ['component' => 'platform.administrator.setting-management.category.create']),
         ];
     }
     public function setUp(): array
@@ -59,6 +59,11 @@ final class Table extends PowerGridComponent
             ->add('id')
             ->add('title')
             ->add('type')
+            ->add('icon')
+            ->add('image')
+            ->add('language')
+            ->add('description')
+            ->add('sort_order')
             ->add('created_at_formatted', fn (Category $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
@@ -70,15 +75,26 @@ final class Table extends PowerGridComponent
             Column::make(__('platform::common.title'), 'title')
                 ->sortable()
                 ->searchable(),
-
-
             Column::make(__('platform::common.type'), 'type')
                 ->sortable()
                 ->searchable(),
-
+            Column::make(__('platform::common.icon'), 'icon')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('platform::common.image'), 'image')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('platform::common.language'), 'language')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('platform::common.description'), 'description')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('platform::common.sort_order'), 'sort_order')
+                ->sortable()
+                ->searchable(),
             Column::make(__('platform::common.created_at'), 'created_at_formatted', 'created_at')
                 ->sortable(),
-
             Column::action(__('platform::common.action'))
         ];
     }
@@ -90,22 +106,21 @@ final class Table extends PowerGridComponent
         ];
     }
 
-    #[On('administrator.support-management.ticket.table:delete-ticket')]
-    public function deleteTicket(int $ticektId): void
+    #[On('administrator.setting-management.category.table:delete-category')]
+    public function deleteCategory(int $categoryId): void
     {
-        if ($record = Ticket::find($ticektId)) {
+        if ($record = Category::find($categoryId)) {
             $record->delete();
-            Toaster::success( __('platform::common.deleted'));
+            Toaster::success(__('platform::common.deleted'));
         }
 
         // Refresh table after delete
-        $this->dispatch('pg:eventRefresh-administrator.support-management.ticket.table');
+        $this->dispatch('pg:eventRefresh-administrator.setting-management.category.table');
     }
 
-
-    public function actionsFromView(Ticket $row): View
+    public function actionsFromView(Category $row): View
     {
-        return view('platform::livewire.administrator.support-management.ticket.actions', ['ticket' => $row]);
+        return view('platform::livewire.administrator.setting-management.category.actions', ['category' => $row]);
     }
 
 }

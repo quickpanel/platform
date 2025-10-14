@@ -7,7 +7,6 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\On;
 use Masmerise\Toaster\Toaster;
-use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Facades\Filter;
 use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
@@ -16,7 +15,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 use QuickPanel\Platform\Models\Support\Ticket;
 
-final class Table extends PowerGridComponent
+final class UnreadTable extends PowerGridComponent
 {
     use WithExport;
     public string $tableName = 'administrator.support-management.ticket.unread-table';

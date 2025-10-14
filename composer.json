@@ -2,7 +2,7 @@
     "name": "quickpanel/platform",
     "description": "QuickPanel Platform to make Admin Panel in seconds.",
     "type": "library",
-    "version": "1.0.0",
+    "version": "dev-main",
     "license": "MIT",
     "autoload": {
         "psr-4": {

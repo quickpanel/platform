@@ -208,6 +208,7 @@ return [
     'log_management' => 'Log Management',
     'attributes' => 'Attributes',
     'old' => 'Old',
+    'unread' => 'Unread',
     'status' => 'Status',
     'deleted' => 'Deleted.',
     'created' => 'Created.',
@@ -218,4 +219,9 @@ return [
     'view_ticket' => 'View Ticket',
     'type' => 'Type',
     'ticket_replayed' => 'Ticket Replayed.',
+    'subject_type' => 'Subject Type',
+    'causer_type' => 'Causer Type',
+    'causer_id' => 'Causer ID',
+    'event' => 'Event',
+    'logs' => 'Logs',
 ];

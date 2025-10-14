@@ -2,5 +2,5 @@
     {{ __('platform::common.categories') }}
 </x-slot>
 <div>
-    <livewire:platform.administrator.support-management.category.table/>
+    <livewire:platform.administrator.setting-management.category.table/>
 </div>
