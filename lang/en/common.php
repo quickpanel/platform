@@ -216,4 +216,6 @@ return [
     'relayed' => 'Relayed.',
     'unread_tickets' => 'Unread Tickets',
     'view_ticket' => 'View Ticket',
+    'type' => 'Type',
+    'ticket_replayed' => 'Ticket Replayed.',
 ];
