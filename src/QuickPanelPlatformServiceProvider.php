@@ -66,6 +66,8 @@ class QuickPanelPlatformServiceProvider extends ServiceProvider
         Livewire::component('platform.administrator.setting-management.category.create', \QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Create::class);
         Livewire::component('platform.administrator.setting-management.category.edit', \QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Edit::class);
         Livewire::component('platform.administrator.setting-management.category.index', \QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Index::class);
+        Livewire::component('platform.administrator.setting-management.category.table', \QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category\Table::class);
+
         Livewire::component('platform.auth.change-password', \QuickPanel\Platform\Livewire\Auth\ChangePassword::class);
         Livewire::component('platform.auth.forget-password', \QuickPanel\Platform\Livewire\Auth\ForgetPassword::class);
         Livewire::component('platform.auth.login', \QuickPanel\Platform\Livewire\Auth\Login::class);
