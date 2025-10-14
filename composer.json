@@ -39,6 +39,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "matthewbdaly/artisan-standalone": "^0.0.12"
+        "matthewbdaly/artisan-standalone": "^0.0.12",
+        "orchestra/testbench": "^10.6"
     }
 }
