@@ -2,5 +2,5 @@
     {{ __('platform::common.activity') }}
 </x-slot>
 <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+    <livewire:platform.administrator.log-management.activity.table/>
 </div>
