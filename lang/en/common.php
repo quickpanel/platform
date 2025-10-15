@@ -224,4 +224,5 @@ return [
     'causer_id' => 'Causer ID',
     'event' => 'Event',
     'logs' => 'Logs',
+    'auth-logs' => 'Auth Logs',
 ];
