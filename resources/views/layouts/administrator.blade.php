@@ -232,6 +232,13 @@
                         class="py-2 space-y-2 {{ request()->routeIs('administrator.log-management.*') ? '' : ' hidden'  }}">
                         <li>
                             <a
+                                href="{{ route('administrator.log-management.auth.index') }}"
+                                class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.log-management.auth.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                            >{{ __('platform::common.auth-logs') }}</a
+                            >
+                        </li>
+                        <li>
+                            <a
                                     href="{{ route('administrator.log-management.activity.index') }}"
                                     class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.log-management.activity.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
                             >{{ __('platform::common.activity') }}</a
@@ -240,7 +247,7 @@
                         <li>
                             <a
                                 href="{{ route('log-viewer.index') }}"
-                                class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.log-management.activity.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                                class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                             >{{ __('platform::common.logs') }}</a
                             >
                         </li>
@@ -322,6 +329,14 @@
                     </button>
                     <ul id="dropdown-setting-management"
                         class="py-2 space-y-2 {{ request()->routeIs('administrator.setting-management.*') ? '' : ' hidden'  }}">
+                        <li>
+                            <a
+                                href="{{ route('administrator.setting-management.category.index') }}"
+                                class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.setting-management.category.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                            >{{ __('platform::common.categories') }}</a
+                            >
+                        </li>
+
                         <li>
                             <a
                                     href="{{ route('administrator.setting-management.option.index') }}"

@@ -60,6 +60,9 @@ class QuickPanelPlatformServiceProvider extends ServiceProvider
         Livewire::component('platform.administrator.user-management.user.table', \QuickPanel\Platform\Livewire\Administrator\UserManagement\User\Table::class);
         Livewire::component('platform.administrator.log-management.activity.index', \QuickPanel\Platform\Livewire\Administrator\LogManagement\Activity\Index::class);
         Livewire::component('platform.administrator.log-management.activity.table', \QuickPanel\Platform\Livewire\Administrator\LogManagement\Activity\Table::class);
+        Livewire::component('platform.administrator.log-management.auth.index', \QuickPanel\Platform\Livewire\Administrator\LogManagement\Auth\Index::class);
+        Livewire::component('platform.administrator.log-management.auth.table', \QuickPanel\Platform\Livewire\Administrator\LogManagement\Auth\Table::class);
+
         Livewire::component('platform.administrator.support-management.ticket.index', \QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\Index::class);
         Livewire::component('platform.administrator.support-management.ticket.view', \QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\View::class);
         Livewire::component('platform.administrator.support-management.ticket.unread', \QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\Unread::class);
