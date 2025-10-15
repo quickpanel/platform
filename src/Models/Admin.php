@@ -4,6 +4,7 @@ namespace QuickPanel\Platform\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Rappasoft\LaravelAuthenticationLog\Traits\AuthenticationLoggable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
@@ -12,7 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
-    use Notifiable, HasRoles, SoftDeletes, HasRoles, LogsActivity;
+    use Notifiable, HasRoles, SoftDeletes, HasRoles, LogsActivity, AuthenticationLoggable;
 
     /**
      * The attributes that are mass assignable.

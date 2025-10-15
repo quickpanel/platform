@@ -27,7 +27,8 @@
         "spatie/laravel-permission": "^6.21",
         "spatie/laravel-activitylog": "^4.10",
         "mallardduck/blade-lucide-icons": "^1.23",
-        "quickpanel/flowbite-ui": "dev-main"
+        "quickpanel/flowbite-ui": "dev-main",
+        "rappasoft/laravel-authentication-log": "^5.0"
     },
     "extra": {
         "laravel": {
