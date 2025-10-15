@@ -5,6 +5,7 @@ namespace QuickPanel\Platform\Livewire\Administrator\SettingManagement\Category;
 use Livewire\Component;
 use Masmerise\Toaster\Toaster;
 use QuickPanel\Platform\Models\Setting\Category;
+use Illuminate\Validation\Rule;
 
 class Edit extends Component
 {
@@ -36,10 +37,10 @@ class Edit extends Component
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'type' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'string', 'max:255', Rule::in(array_keys(config('platform.types', [])))],
             'icon' => ['nullable', 'string', 'max:255'],
             'image' => ['nullable', 'string', 'max:255'],
-            'language' => ['required', 'string', 'max:5'],
+            'language' => ['required', 'string', 'max:5', Rule::in(array_keys(config('platform.languages', [])))],
             'description' => ['nullable', 'string'],
             'sort_order' => ['required', 'integer', 'min:1'],
         ];

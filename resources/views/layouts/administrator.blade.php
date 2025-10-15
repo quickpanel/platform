@@ -324,6 +324,14 @@
                         class="py-2 space-y-2 {{ request()->routeIs('administrator.setting-management.*') ? '' : ' hidden'  }}">
                         <li>
                             <a
+                                href="{{ route('administrator.setting-management.category.index') }}"
+                                class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.setting-management.category.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
+                            >{{ __('platform::common.categories') }}</a
+                            >
+                        </li>
+
+                        <li>
+                            <a
                                     href="{{ route('administrator.setting-management.option.index') }}"
                                     class="flex items-center p-2 ps-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->routeIs('administrator.setting-management.option.*') ? ' bg-gray-100 dark:bg-gray-700' : ''  }}"
                             >{{ __('platform::common.options') }}</a
