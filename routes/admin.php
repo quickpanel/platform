@@ -22,6 +22,7 @@ if (config('platform.enable_admin')) {
             Route::get('/administrator/user-management/permission/index', QuickPanel\Platform\Livewire\Administrator\UserManagement\Permission\Index::class)->name('administrator.user-management.permission.index');
 
             Route::get('/administrator/log-management/activity/index', QuickPanel\Platform\Livewire\Administrator\LogManagement\Activity\Index::class)->name('administrator.log-management.activity.index');
+            Route::get('/administrator/log-management/auth/index', QuickPanel\Platform\Livewire\Administrator\LogManagement\Auth\Index::class)->name('administrator.log-management.auth.index');
 
             Route::get('/administrator/support-management/ticket/index', QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\Index::class)->name('administrator.support-management.ticket.index');
             Route::get('/administrator/support-management/ticket/unread', QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket\Unread::class)->name('administrator.support-management.ticket.unread');
