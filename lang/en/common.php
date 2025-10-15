@@ -232,4 +232,10 @@ return [
     'logout_at' => 'Logout At',
     'cleared_by_user' => 'Cleared By User',
     'location' => 'Location',
+    'replies' => 'Replies',
+    'by' => 'By',
+    'reply' => 'Reply',
+    'no_data_found' => 'No Data Found',
+    'message' => 'Message',
+    'send' => 'Send',
 ];

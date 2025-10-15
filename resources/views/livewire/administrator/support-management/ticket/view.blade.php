@@ -61,14 +61,14 @@
 
     <!-- Reply form -->
     <div class="p-4 border rounded bg-white">
-        <form wire:submit.prevent="submitReplay" class="space-y-3">
+        <form class="space-y-3">
             <div>
                 <label class="block text-sm font-medium mb-1">{{ __('platform::common.message') }}</label>
                 <textarea wire:model.defer="body" rows="5" class="w-full border rounded p-2"></textarea>
                 @error('body') <div class="text-red-600 text-sm mt-1">{{ $message }}</div> @enderror
             </div>
             <div class="flex justify-end">
-                <button type="submit" class="px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700">{{ __('platform::common.send') }}</button>
+                <x-flowbite-ui::button wire:click="submitReplay" type="submit" variant="solid" color="primary">{{ __('platform::common.send') }}</x-flowbite-ui::button>
             </div>
         </form>
     </div>
