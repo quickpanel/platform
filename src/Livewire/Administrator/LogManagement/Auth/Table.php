@@ -1,6 +1,6 @@
 <?php
 
-namespace QuickPanel\Platform\Livewire\Administrator\LogManagement\Activity;
+namespace QuickPanel\Platform\Livewire\Administrator\LogManagement\Auth;
 
 use Illuminate\View\View;
 use Illuminate\Support\Carbon;
@@ -11,12 +11,13 @@ use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
+use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog;
 use Spatie\Activitylog\Models\Activity;
 
 final class Table extends PowerGridComponent
 {
     use WithExport;
-    public string $tableName = 'administrator.log-management.activity.table';
+    public string $tableName = 'administrator.log-management.auth.table';
 
     public function setUp(): array
     {
@@ -33,7 +34,7 @@ final class Table extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Activity::query();
+        return AuthenticationLog::query();
     }
 
     public function relationSearch(): array
@@ -45,12 +46,12 @@ final class Table extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('id')
-            ->add('subject_type')
-            ->add('event')
-            ->add('causer_type')
-            ->add('causer_id')
-            ->add('causer_id')
-            ->add('created_at_formatted', fn (Activity $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->add('ip_address')
+            ->add('user_agent')
+            ->add('login_at')
+            ->add('logout_at')
+            ->add('login_successful')
+            ->add('created_at');
     }
 
     public function columns(): array
@@ -58,19 +59,22 @@ final class Table extends PowerGridComponent
         return [
             Column::make(__('platform::common.id'), 'id')
                 ->sortable(),
-            Column::make(__('platform::common.subject_type'), 'subject_type')
+            Column::make(__('platform::common.ip_address'), 'ip_address')
                 ->sortable()
                 ->searchable(),
-            Column::make(__('platform::common.event'), 'event')
+            Column::make(__('platform::common.user_agent'), 'user_agent')
                 ->sortable()
                 ->searchable(),
-            Column::make(__('platform::common.causer_type'), 'causer_type')
+            Column::make(__('platform::common.login_at'), 'login_at')
                 ->sortable()
                 ->searchable(),
-            Column::make(__('platform::common.causer_id'), 'causer_id')
+            Column::make(__('platform::common.logout_at'), 'logout_at')
                 ->sortable()
                 ->searchable(),
-            Column::make(__('platform::common.created_at'), 'created_at_formatted', 'created_at')
+            Column::make(__('platform::common.login_successful'), 'login_successful')
+                ->sortable()
+                ->searchable(),
+            Column::make(__('platform::common.created_at'), 'created_at')
                 ->sortable(),
             Column::action(__('platform::common.action'))
         ];
@@ -86,9 +90,9 @@ final class Table extends PowerGridComponent
 
 
 
-    public function actionsFromView(Activity $row): View
+    public function actionsFromView(AuthenticationLog $row): View
     {
-        return view('platform::livewire.administrator.log-management.activity.actions', ['activity' => $row]);
+        return view('platform::livewire.administrator.log-management.auth.actions', ['AuthenticationLog' => $row]);
     }
 
     /*

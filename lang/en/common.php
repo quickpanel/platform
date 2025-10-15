@@ -225,4 +225,11 @@ return [
     'event' => 'Event',
     'logs' => 'Logs',
     'auth-logs' => 'Auth Logs',
+    'ip_address' => 'IP Address',
+    'user_agent' => 'User Agent',
+    'login_at' => 'Login At',
+    'login_successful' => 'Login Successful',
+    'logout_at' => 'Logout At',
+    'cleared_by_user' => 'Cleared By User',
+    'location' => 'Location',
 ];
