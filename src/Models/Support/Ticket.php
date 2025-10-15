@@ -3,8 +3,6 @@
 namespace QuickPanel\Platform\Models\Support;
 
 
-use App\Models\TicketFile;
-use App\Models\TicketReplay;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
