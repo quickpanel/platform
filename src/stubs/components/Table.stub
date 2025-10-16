@@ -3,7 +3,7 @@
 namespace {{componentNamespace}};
 
 use Illuminate\View\View;
-use {{componentNamespace}}\{{model}};
+use {{modelNamespace}};
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\On;
@@ -87,14 +87,9 @@ final class Table extends PowerGridComponent
     #[On('{{tableName}}:delete-{{modelLower}}')]
     public function delete{{model}}(int ${{modelId}}): void
     {
-        if (${{modelId}} === auth()->id()) {
-            // Avoid deleting yourself; optional safety
-            return;
-        }
-
         if (${{modelVariable}} = {{model}}::find(${{modelId}})) {
             ${{modelVariable}}->delete();
-            Toaster::success( __('platform::common.{{modelLower}}_deleted'));
+            Toaster::success( __('platform::common.deleted'));
         }
 
         // Refresh table after delete

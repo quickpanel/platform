@@ -62,7 +62,15 @@ class CrudCommand extends Command
     {
         $namespacePath = str_replace('\\', '/', $this->namespace);
         $this->componentPath = app_path("Livewire/{$namespacePath}/{$this->model}");
-        $this->viewPath = resource_path("views/livewire/" . strtolower(str_replace('\\', '/', $this->namespace)));
+        
+        // Convert namespace to kebab-case properly
+        $namespaceParts = explode('\\', $this->namespace);
+        $kebabParts = array_map(function($part) {
+            return Str::kebab($part);
+        }, $namespaceParts);
+        $namespaceKebab = implode('/', $kebabParts);
+        
+        $this->viewPath = resource_path("views/livewire/" . $namespaceKebab . '/' . Str::kebab($this->model));
     }
 
     protected function generateComponents()
@@ -172,6 +180,17 @@ class CrudCommand extends Command
     protected function replacePlaceholders($content)
     {
         $namespacePath = strtolower(str_replace('\\', '/', $this->namespace));
+        
+        // Convert namespace to kebab-case properly for view path
+        $namespaceParts = explode('\\', $this->namespace);
+        $kebabParts = array_map(function($part) {
+            return Str::kebab($part);
+        }, $namespaceParts);
+        $viewPath = 'livewire.' . implode('.', $kebabParts) . '.' . Str::kebab($this->model);
+        
+        $modelNamespace = "App\\Models\\{$this->model}";
+        $tableName = implode('.', $kebabParts) . ".{$this->modelPluralLower}.table";
+        
         $replacements = [
             '{{namespace}}' => $this->namespace,
             '{{model}}' => $this->model,
@@ -179,14 +198,15 @@ class CrudCommand extends Command
             '{{modelPlural}}' => $this->modelPlural,
             '{{modelPluralLower}}' => $this->modelPluralLower,
             '{{componentNamespace}}' => "App\\Livewire\\{$this->namespace}\\{$this->model}",
-            '{{viewPath}}' => "platform::livewire.{$namespacePath}.{$this->modelLower}",
-            '{{tableName}}' => strtolower(str_replace('\\', '.', $this->namespace)) . ".{$this->modelPluralLower}.table",
+            '{{viewPath}}' => $viewPath,
+            '{{tableName}}' => $tableName,
             '{{modalComponent}}' => "platform.{$namespacePath}.{$this->modelPluralLower}",
             '{{routeName}}' => strtolower(str_replace('\\', '.', $this->namespace)) . ".{$this->modelPluralLower}.index",
             '{{modelVariable}}' => $this->modelLower,
             '{{modelId}}' => $this->modelLower . 'Id',
             '{{modelVariablePlural}}' => $this->modelPluralLower,
             '{{namespacePath}}' => $namespacePath,
+            '{{modelNamespace}}' => $modelNamespace,
         ];
 
         return str_replace(array_keys($replacements), array_values($replacements), $content);
