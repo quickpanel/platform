@@ -15,11 +15,14 @@ return [
         'ticket' => 'Ticket',
         'article' => 'Article',
     ],
-    'administrator_layout' => 'platform::layouts.administrator',
-    'user_layout' => 'platform::layouts.user',
-    'front_layout' => 'platform::layouts.front',
-    'app_layout' => 'platform::layouts.app',
-    'auth_layout' => 'platform::layouts.auth',
+    'layouts' => [
+        'administrator' => 'platform::layouts.administrator',
+        'user' => 'platform::layouts.user',
+        'front' => 'platform::layouts.front',
+        'app' => 'platform::layouts.app',
+        'auth' => 'platform::layouts.auth',
+    ],
+
     'template' =>
     [
         'create-component' => 'src/stubs/components/Create.php',
