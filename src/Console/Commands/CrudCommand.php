@@ -62,7 +62,7 @@ class CrudCommand extends Command
     {
         $namespacePath = str_replace('\\', '/', $this->namespace);
         $this->componentPath = app_path("Livewire/{$namespacePath}/{$this->model}");
-        $this->viewPath = resource_path("views/livewire/{$this->modelPluralLower}");
+        $this->viewPath = resource_path("views/livewire/" . strtolower(str_replace('\\', '/', $this->namespace)));
     }
 
     protected function generateComponents()
@@ -171,20 +171,22 @@ class CrudCommand extends Command
 
     protected function replacePlaceholders($content)
     {
+        $namespacePath = strtolower(str_replace('\\', '/', $this->namespace));
         $replacements = [
             '{{namespace}}' => $this->namespace,
             '{{model}}' => $this->model,
             '{{modelLower}}' => $this->modelLower,
             '{{modelPlural}}' => $this->modelPlural,
             '{{modelPluralLower}}' => $this->modelPluralLower,
-            '{{componentNamespace}}' => "QuickPanel\\Platform\\Livewire\\{$this->namespace}\\{$this->model}",
-            '{{viewPath}}' => "platform::livewire.{$this->modelPluralLower}",
+            '{{componentNamespace}}' => "App\\Livewire\\{$this->namespace}\\{$this->model}",
+            '{{viewPath}}' => "platform::livewire.{$namespacePath}.{$this->modelLower}",
             '{{tableName}}' => strtolower(str_replace('\\', '.', $this->namespace)) . ".{$this->modelPluralLower}.table",
-            '{{modalComponent}}' => "platform.{$this->modelPluralLower}",
+            '{{modalComponent}}' => "platform.{$namespacePath}.{$this->modelPluralLower}",
             '{{routeName}}' => strtolower(str_replace('\\', '.', $this->namespace)) . ".{$this->modelPluralLower}.index",
             '{{modelVariable}}' => $this->modelLower,
             '{{modelId}}' => $this->modelLower . 'Id',
             '{{modelVariablePlural}}' => $this->modelPluralLower,
+            '{{namespacePath}}' => $namespacePath,
         ];
 
         return str_replace(array_keys($replacements), array_values($replacements), $content);

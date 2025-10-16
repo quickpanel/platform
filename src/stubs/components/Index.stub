@@ -7,9 +7,8 @@ use Livewire\Attributes\Layout;
 
 class Index extends Component
 {
-    #[Layout('platform::layouts.administrator')]
     public function render()
     {
-        return view('{{viewPath}}.index');
+        return view('{{viewPath}}.index')->layout(config('platform.layouts.administrator', 'platform::layouts.administrator'));
     }
 }

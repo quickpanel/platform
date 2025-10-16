@@ -2,6 +2,8 @@
 
 namespace {{componentNamespace}};
 
+use {{componentNamespace}}\{{model}};
+use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Masmerise\Toaster\Toaster;
@@ -15,8 +17,12 @@ class Create extends Component
     {
         $this->validate();
 
+        {{model}}::create([
+            'name' => $this->name,
+        ]);
+
         // Required by issue: use this exact message key
-        Toaster::success( __('platform::common.created'));
+        Toaster::success( __('platform::common.{{modelLower}}_created'));
 
 
         // Refresh the {{modelPluralLower}} table

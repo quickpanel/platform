@@ -1,5 +1,5 @@
 <x-slot name="title">
-    {{ __('platform::common.index') }}
+    {{ __('platform::common.{{modelPluralLower}}') }}
 </x-slot>
 <x-slot name="breadcrumb">
     <li aria-current="page">
