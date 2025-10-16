@@ -7,9 +7,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    #[Layout('platform::layouts.user')]
     public function render()
     {
-        return view('platform::livewire.user.dashboard.index');
+        return view('platform::livewire.user.dashboard.index')->layout(config('platform.layouts.user', 'platform::layouts.user'));
     }
 }

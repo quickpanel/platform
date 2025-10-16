@@ -7,9 +7,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    #[Layout('platform::layouts.administrator')]
     public function render()
     {
-        return view('platform::livewire.administrator.support-management.ticket.index');
+        return view('platform::livewire.administrator.support-management.ticket.index')->layout(config('platform.layouts.administrator', 'platform::layouts.administrator'));
     }
 }

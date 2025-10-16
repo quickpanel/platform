@@ -44,9 +44,8 @@ class View extends Component
         Toaster::success(__('platform::common.relayed'));
     }
 
-    #[Layout('platform::layouts.administrator')]
     public function render()
     {
-        return view('platform::livewire.administrator.support-management.ticket.view');
+        return view('platform::livewire.administrator.support-management.ticket.view')->layout(config('platform.layouts.administrator', 'platform::layouts.administrator'));
     }
 }

@@ -15,9 +15,8 @@ class Index extends Component
         Artisan::call(\QuickPanel\Platform\Console\Commands\CreatePermissionsCommand::class);
         Toaster::success(__('platform::common.permissions_updated'));
     }
-    #[Layout('platform::layouts.administrator')]
     public function render()
     {
-        return view('platform::livewire.administrator.setting-management.function.index');
+        return view('platform::livewire.administrator.setting-management.function.index')->layout(config('platform.layouts.administrator', 'platform::layouts.administrator'));
     }
 }

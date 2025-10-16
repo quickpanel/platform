@@ -50,9 +50,8 @@ class ForgetPassword extends Component
         return 'pwd_reset:' . strtolower(trim($email));
     }
 
-    #[Layout('platform::layouts.auth')]
     public function render()
     {
-        return view('platform::livewire.administrator.auth.forget-password');
+        return view('platform::livewire.administrator.auth.forget-password')->layout(config('platform.layouts.auth', 'platform::layouts.auth'));
     }
 }
