@@ -1,0 +1,14 @@
+<?php
+
+namespace {{componentNamespace}};
+
+use Livewire\Component;
+use Livewire\Attributes\Layout;
+
+class Index extends Component
+{
+    public function render()
+    {
+        return view('{{viewPath}}.index')->layout(config('platform.layouts.administrator', 'platform::layouts.administrator'));
+    }
+}

@@ -47,9 +47,8 @@ class Login extends Component
         return redirect()->intended(route('administrator.dashboard.index'));
     }
 
-    #[Layout('platform::layouts.auth')]
     public function render()
     {
-        return view('platform::livewire.administrator.auth.login');
+        return view('platform::livewire.administrator.auth.login')->layout(config('platform.layouts.auth', 'platform::layouts.auth'));
     }
 }

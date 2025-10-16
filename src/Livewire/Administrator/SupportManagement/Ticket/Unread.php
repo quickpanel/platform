@@ -7,9 +7,8 @@ use Livewire\Component;
 
 class Unread extends Component
 {
-    #[Layout('platform::layouts.administrator')]
     public function render()
     {
-        return view('platform::livewire.administrator.support-management.ticket.unread');
+        return view('platform::livewire.administrator.support-management.ticket.unread')->layout(config('platform.layouts.administrator', 'platform::layouts.administrator'));
     }
 }

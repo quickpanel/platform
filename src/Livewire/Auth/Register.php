@@ -46,9 +46,8 @@ class Register extends Component
         return redirect()->intended('/');
     }
 
-    #[Layout('platform::layouts.auth')]
     public function render()
     {
-        return view('platform::livewire.auth.register');
+        return view('platform::livewire.auth.register')->layout(config('platform.layouts.auth', 'platform::layouts.auth'));
     }
 }

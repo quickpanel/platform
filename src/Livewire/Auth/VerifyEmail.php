@@ -148,9 +148,8 @@ class VerifyEmail extends Component
         redirect()->route('user.dashboard.index')->send();
     }
 
-    #[Layout('platform::layouts.auth')]
     public function render()
     {
-        return view('platform::livewire.auth.verify-email');
+        return view('platform::livewire.auth.verify-email')->layout(config('platform.layouts.auth', 'platform::layouts.auth'));
     }
 }

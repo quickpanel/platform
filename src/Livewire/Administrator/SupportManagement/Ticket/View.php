@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request as HttpRequest;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 use QuickPanel\Platform\Models\Support\Ticket;
 use QuickPanel\Platform\Models\Support\TicketReplay;
 
@@ -40,12 +41,11 @@ class View extends Component
         $this->body = '';
 
         // Optionally dispatch a browser event or flash message
-        session()->flash('success', __('platform::common.saved_successfully'));
+        Toaster::success(__('platform::common.relayed'));
     }
 
-    #[Layout('platform::layouts.administrator')]
     public function render()
     {
-        return view('platform::livewire.administrator.support-management.ticket.view');
+        return view('platform::livewire.administrator.support-management.ticket.view')->layout(config('platform.layouts.administrator', 'platform::layouts.administrator'));
     }
 }

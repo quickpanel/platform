@@ -171,9 +171,8 @@ class Index extends Component
         redirect()->route('home')->send();
     }
 
-    #[Layout('platform::layouts.user')]
     public function render()
     {
-        return view('platform::livewire.user.setting.profile.index');
+        return view('platform::livewire.user.setting.profile.index')->layout(config('platform.layouts.user', 'platform::layouts.user'));
     }
 }

@@ -69,9 +69,8 @@ class ChangePassword extends Component
         return 'pwd_reset:' . strtolower(trim($email));
     }
 
-    #[Layout('platform::layouts.auth')]
     public function render()
     {
-        return view('platform::livewire.administrator.auth.change-password');
+        return view('platform::livewire.administrator.auth.change-password')->layout(config('platform.layouts.auth', 'platform::layouts.auth'));
     }
 }

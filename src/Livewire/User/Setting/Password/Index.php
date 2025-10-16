@@ -54,9 +54,8 @@ class Index extends Component
         Toaster::success(__('platform::common.password_changed_successfully'));
     }
 
-    #[Layout('platform::layouts.user')]
     public function render()
     {
-        return view('platform::livewire.user.setting.password.index');
+        return view('platform::livewire.user.setting.password.index')->layout(config('platform.layouts.user', 'platform::layouts.user'));
     }
 }

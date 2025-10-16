@@ -7,9 +7,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    #[Layout('platform::layouts.front')]
     public function render()
     {
-        return view('platform::livewire.front.home.index');
+        return view('platform::livewire.front.home.index')->layout(config('platform.layouts.front', 'platform::layouts.front'));
     }
 }
