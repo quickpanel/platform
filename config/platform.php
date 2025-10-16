@@ -20,4 +20,16 @@ return [
     'front_layout' => 'platform::layouts.front',
     'app_layout' => 'platform::layouts.app',
     'auth_layout' => 'platform::layouts.auth',
+    'template' =>
+    [
+        'create-component' => 'src/stubs/components/Create.php',
+        'edit-component' => 'src/stubs/components/Edit.php',
+        'index-component' => 'src/stubs/components/Index.php',
+        'table-component' => 'src/stubs/components/Table.php',
+
+        'create-view' => 'src/stubs/views/create.blade.php',
+        'edit-view' => 'src/stubs/views/edit.blade.php',
+        'index-view' => 'src/stubs/views/index.blade.php',
+        'actions-view' => 'src/stubs/views/actions.blade.php',
+    ],
 ];
