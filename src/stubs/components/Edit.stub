@@ -1,0 +1,41 @@
+<?php
+
+namespace {{componentNamespace}};
+
+use Livewire\Attributes\Validate;
+use Livewire\Component;
+use Masmerise\Toaster\Toaster;
+
+class Edit extends Component
+{
+    public int ${{modelId}};
+
+    #[Validate('required|string|min:3')]
+    public string $name = '';
+
+
+    public function mount(int ${{modelId}}): void
+    {
+        $this->{{modelId}} = ${{modelId}};
+    }
+
+    public function update(): void
+    {
+        // Handle unique email for this user
+        $this->validate();
+
+
+
+        // Required by issue: use this exact message key
+        Toaster::success( __('platform::common.updated'));
+        // Refresh the {{modelPluralLower}} table
+        $this->dispatch('pg:eventRefresh-{{tableName}}');
+
+        $this->dispatch('modal-close');
+    }
+
+    public function render()
+    {
+        return view('{{viewPath}}.edit');
+    }
+}

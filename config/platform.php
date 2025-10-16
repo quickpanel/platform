@@ -25,10 +25,10 @@ return [
 
     'template' =>
     [
-        'create-component' => 'src/stubs/components/Create.php',
-        'edit-component' => 'src/stubs/components/Edit.php',
-        'index-component' => 'src/stubs/components/Index.php',
-        'table-component' => 'src/stubs/components/Table.php',
+        'create-component' => 'src/stubs/components/Create.stub',
+        'edit-component' => 'src/stubs/components/Edit.stub',
+        'index-component' => 'src/stubs/components/Index.stub',
+        'table-component' => 'src/stubs/components/Table.stub',
 
         'create-view' => 'src/stubs/views/create.blade.php',
         'edit-view' => 'src/stubs/views/edit.blade.php',

@@ -1,6 +1,6 @@
 <?php
 
-namespace QuickPanel\Platform\Livewire\Administrator\UserManagement\Admin;
+namespace {{componentNamespace}};
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -19,8 +19,8 @@ class Create extends Component
         Toaster::success( __('platform::common.created'));
 
 
-        // Refresh the users table
-        $this->dispatch('pg:eventRefresh-administrator.user-management.admin.table');
+        // Refresh the {{modelPluralLower}} table
+        $this->dispatch('pg:eventRefresh-{{tableName}}');
 
         // Close the modal (livewire-modal package)
         $this->dispatch('modal-close');
@@ -31,6 +31,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('platform::livewire.administrator.user-management.admin.create');
+        return view('{{viewPath}}.create');
     }
 }

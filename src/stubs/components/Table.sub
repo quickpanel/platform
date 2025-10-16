@@ -1,9 +1,9 @@
 <?php
 
-namespace QuickPanel\Platform\Livewire\Administrator\UserManagement\Admin;
+namespace {{componentNamespace}};
 
 use Illuminate\View\View;
-use QuickPanel\Platform\Models\Admin;
+use {{componentNamespace}}\{{model}};
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\On;
@@ -19,15 +19,15 @@ use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 final class Table extends PowerGridComponent
 {
     use WithExport;
-    public string $tableName = 'administrator.user-management.admin.table';
+    public string $tableName = '{{tableName}}';
 
     public function header(): array
     {
         return [
-            Button::add('create-admin')
-                ->slot(__('platform::common.create_admin'))
+            Button::add('create-{{modelLower}}')
+                ->slot(__('platform::common.create_{{modelLower}}'))
                 ->class('text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800')
-                ->dispatch('modal-open', ['component' => 'platform.administrator.user-management.admin.create']),
+                ->dispatch('modal-open', ['component' => '{{modalComponent}}.create']),
         ];
     }
 
@@ -46,7 +46,7 @@ final class Table extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Admin::query();
+        return {{model}}::query();
     }
 
     public function relationSearch(): array
@@ -59,7 +59,7 @@ final class Table extends PowerGridComponent
         return PowerGrid::fields()
             ->add('id')
             ->add('name')
-            ->add('created_at_formatted', fn (Admin $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->add('created_at_formatted', fn ({{model}} $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
     public function columns(): array
@@ -84,27 +84,27 @@ final class Table extends PowerGridComponent
         ];
     }
 
-    #[On('administrator.user-management.admin.table:delete-admin')]
-    public function deleteAdmin(int $adminId): void
+    #[On('{{tableName}}:delete-{{modelLower}}')]
+    public function delete{{model}}(int ${{modelId}}): void
     {
-        if ($adminId === auth()->id()) {
+        if (${{modelId}} === auth()->id()) {
             // Avoid deleting yourself; optional safety
             return;
         }
 
-        if ($admin = Admin::find($adminId)) {
-            $admin->delete();
-            Toaster::success( __('platform::common.user_deleted'));
+        if (${{modelVariable}} = {{model}}::find(${{modelId}})) {
+            ${{modelVariable}}->delete();
+            Toaster::success( __('platform::common.{{modelLower}}_deleted'));
         }
 
         // Refresh table after delete
-        $this->dispatch('pg:eventRefresh-administrator.user-management.admin.table');
+        $this->dispatch('pg:eventRefresh-{{tableName}}');
     }
 
 
-    public function actionsFromView(Admin $row): View
+    public function actionsFromView({{model}} $row): View
     {
-        return view('platform::livewire.administrator.user-management.admin.actions', ['admin' => $row]);
+        return view('{{viewPath}}.actions', ['{{modelVariable}}' => $row]);
     }
 
 }

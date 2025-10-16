@@ -94,6 +94,7 @@ class QuickPanelPlatformServiceProvider extends ServiceProvider
                 Console\Commands\QuickSetupCommand::class,
                 Console\Commands\InstallCommand::class,
                 Console\Commands\SetUserAdminCommand::class,
+                Console\Commands\CrudCommand::class,
             ]);
         }
 
