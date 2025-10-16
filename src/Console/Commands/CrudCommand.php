@@ -189,7 +189,7 @@ class CrudCommand extends Command
         $viewPath = 'livewire.' . implode('.', $kebabParts) . '.' . Str::kebab($this->model);
         
         $modelNamespace = "App\\Models\\{$this->model}";
-        $tableName = implode('.', $kebabParts) . ".{$this->modelPluralLower}.table";
+        $tableName = implode('.', $kebabParts) . ".{$this->model}.table";
         
         $replacements = [
             '{{namespace}}' => $this->namespace,
