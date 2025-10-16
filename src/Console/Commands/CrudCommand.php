@@ -87,7 +87,7 @@ class CrudCommand extends Command
 
     protected function generateCreateComponent()
     {
-        $stub = File::get(__DIR__ . '/../../stubs/components/Create.php');
+        $stub = File::get(__DIR__ . '/../../stubs/components/Create.stub');
         $content = $this->replacePlaceholders($stub);
         File::put($this->componentPath . '/Create.php', $content);
         $this->info("Created: {$this->componentPath}/Create.php");
@@ -95,7 +95,7 @@ class CrudCommand extends Command
 
     protected function generateEditComponent()
     {
-        $stub = File::get(__DIR__ . '/../../stubs/components/Edit.php');
+        $stub = File::get(__DIR__ . '/../../stubs/components/Edit.stub');
         $content = $this->replacePlaceholders($stub);
         File::put($this->componentPath . '/Edit.php', $content);
         $this->info("Created: {$this->componentPath}/Edit.php");
@@ -103,7 +103,7 @@ class CrudCommand extends Command
 
     protected function generateIndexComponent()
     {
-        $stub = File::get(__DIR__ . '/../../stubs/components/Index.php');
+        $stub = File::get(__DIR__ . '/../../stubs/components/Index.stub');
         $content = $this->replacePlaceholders($stub);
         File::put($this->componentPath . '/Index.php', $content);
         $this->info("Created: {$this->componentPath}/Index.php");
@@ -111,7 +111,7 @@ class CrudCommand extends Command
 
     protected function generateTableComponent()
     {
-        $stub = File::get(__DIR__ . '/../../stubs/components/Table.php');
+        $stub = File::get(__DIR__ . '/../../stubs/components/Table.stub');
         $content = $this->replacePlaceholders($stub);
         File::put($this->componentPath . '/Table.php', $content);
         $this->info("Created: {$this->componentPath}/Table.php");
