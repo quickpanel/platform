@@ -13,5 +13,4 @@
             wire:click="delete{{model}}({{ ${{modelVariable}}->id }})">
         {{ __('platform::common.delete') }}
     </button>
-    @includeIf('quick-panel.{{namespacePath}}.{{modelPluralLower}}.{{modelLower}}.actions', ['{{modelVariable}}' => ${{modelVariable}}])
 </div>

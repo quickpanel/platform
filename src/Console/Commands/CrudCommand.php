@@ -37,24 +37,24 @@ class CrudCommand extends Command
     public function handle()
     {
         App::setLocale('en');
-        
+
         $this->namespace = $this->argument('namespace');
         $this->model = $this->argument('model');
         $this->modelLower = Str::lower($this->model);
         $this->modelPlural = Str::plural($this->model);
         $this->modelPluralLower = Str::lower($this->modelPlural);
-        
+
         $this->info("Generating CRUD for {$this->namespace}\\{$this->model}");
-        
+
         // Set up paths
         $this->setupPaths();
-        
+
         // Generate components
         $this->generateComponents();
-        
+
         // Generate views
         $this->generateViews();
-        
+
         $this->info('CRUD generation completed successfully!');
     }
 
@@ -62,14 +62,14 @@ class CrudCommand extends Command
     {
         $namespacePath = str_replace('\\', '/', $this->namespace);
         $this->componentPath = app_path("Livewire/{$namespacePath}/{$this->model}");
-        
+
         // Convert namespace to kebab-case properly
         $namespaceParts = explode('\\', $this->namespace);
         $kebabParts = array_map(function($part) {
             return Str::kebab($part);
         }, $namespaceParts);
         $namespaceKebab = implode('/', $kebabParts);
-        
+
         $this->viewPath = resource_path("views/livewire/" . $namespaceKebab . '/' . Str::kebab($this->model));
     }
 
@@ -82,13 +82,13 @@ class CrudCommand extends Command
 
         // Generate Create component
         $this->generateCreateComponent();
-        
+
         // Generate Edit component
         $this->generateEditComponent();
-        
+
         // Generate Index component
         $this->generateIndexComponent();
-        
+
         // Generate Table component
         $this->generateTableComponent();
     }
@@ -134,13 +134,13 @@ class CrudCommand extends Command
 
         // Generate create view
         $this->generateCreateView();
-        
+
         // Generate edit view
         $this->generateEditView();
-        
+
         // Generate index view
         $this->generateIndexView();
-        
+
         // Generate actions view
         $this->generateActionsView();
     }
@@ -180,17 +180,17 @@ class CrudCommand extends Command
     protected function replacePlaceholders($content)
     {
         $namespacePath = strtolower(str_replace('\\', '/', $this->namespace));
-        
+
         // Convert namespace to kebab-case properly for view path
         $namespaceParts = explode('\\', $this->namespace);
         $kebabParts = array_map(function($part) {
             return Str::kebab($part);
         }, $namespaceParts);
         $viewPath = 'livewire.' . implode('.', $kebabParts) . '.' . Str::kebab($this->model);
-        
+
         $modelNamespace = "App\\Models\\{$this->model}";
         $tableName = implode('.', $kebabParts) . ".{$this->model}.table";
-        
+
         $replacements = [
             '{{namespace}}' => $this->namespace,
             '{{model}}' => $this->model,
@@ -200,7 +200,7 @@ class CrudCommand extends Command
             '{{componentNamespace}}' => "App\\Livewire\\{$this->namespace}\\{$this->model}",
             '{{viewPath}}' => $viewPath,
             '{{tableName}}' => $tableName,
-            '{{modalComponent}}' => "platform.{$namespacePath}.{$this->modelPluralLower}",
+            '{{modalComponent}}' => "{$namespacePath}.{$this->model}",
             '{{routeName}}' => strtolower(str_replace('\\', '.', $this->namespace)) . ".{$this->modelPluralLower}.index",
             '{{modelVariable}}' => $this->modelLower,
             '{{modelId}}' => $this->modelLower . 'Id',
