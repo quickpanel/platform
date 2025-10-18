@@ -17,9 +17,9 @@
     ],
     "require": {
         "php": "^8.3",
-        "illuminate/support": "^12.32",
+        "illuminate/support": ">=11.0",
         "elegantly/livewire-modal": "^1.0",
-        "livewire/livewire": "^3.6",
+        "livewire/livewire": ">=3.6",
         "masmerise/livewire-toaster": "^2.8",
         "opcodesio/log-viewer": "^3.19",
         "power-components/livewire-powergrid": "^6.6",
