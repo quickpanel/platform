@@ -46,7 +46,8 @@ final class Table extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return User::query();
+        return User::query()
+            ->orderBy('id', 'desc');
     }
 
     public function relationSearch(): array
