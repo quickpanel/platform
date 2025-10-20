@@ -80,6 +80,9 @@ final class Table extends PowerGridComponent
     public function filters(): array
     {
         return [
+            Filter::inputText('subject_type'),
+            Filter::inputText('event'),
+            Filter::inputText('causer_type'),
             Filter::datetimepicker('created_at'),
         ];
     }

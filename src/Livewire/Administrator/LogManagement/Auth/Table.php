@@ -84,6 +84,8 @@ final class Table extends PowerGridComponent
     public function filters(): array
     {
         return [
+            Filter::inputText('ip_address'),
+            Filter::inputText('user_agent'),
             Filter::datetimepicker('created_at'),
         ];
     }
