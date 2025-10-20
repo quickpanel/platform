@@ -238,4 +238,5 @@ return [
     'no_data_found' => 'No Data Found',
     'message' => 'Message',
     'send' => 'Send',
+    'detail' => 'Detail',
 ];
