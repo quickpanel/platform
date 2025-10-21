@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'user' => 'User',
-    'administrator' => 'Administrator',
+    'user' => 'کاربر',
+    'administrator' => 'مدیر',
 ];
