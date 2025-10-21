@@ -261,7 +261,7 @@
                             aria-controls="dropdown-support-management"
                             data-collapse-toggle="dropdown-support-management"
                     >
-                        <x-dynamic-component component="lucide-life-buoy"  class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"></x-dynamic-component>
+                        <x-dynamic-component component="lucide-life-buoy"  class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" width="24" height="24"></x-dynamic-component>
                         <span class="flex-1 ms-3 text-start whitespace-nowrap"
                         >{{ __('platform::common.support_management') }}</span
                         >
