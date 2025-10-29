@@ -239,4 +239,6 @@ return [
     'message' => 'Message',
     'send' => 'Send',
     'detail' => 'Detail',
+    'clear_cache' => 'Clear Cache',
+    'cache_cleared' => 'Cache cleared.',
 ];
