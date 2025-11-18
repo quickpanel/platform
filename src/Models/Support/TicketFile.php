@@ -31,7 +31,7 @@ class TicketFile extends Model
         'file_url',
     ];
 
-    public function fileUrlAttribute(): Attribute
+    public function getFileUrlAttribute(): Attribute
     {
         return Attribute::get(function () {
             if (empty($this->file)) {
