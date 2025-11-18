@@ -16,7 +16,7 @@
                 <div class="font-medium mb-2">{{ __('platform::common.attachments') }}</div>
                 <div class="flex flex-wrap gap-2">
                     @foreach($ticket->files as $file)
-                        <a href="{{ \Illuminate\Support\Facades\Storage::url($file->file) }}" download class="inline-flex items-center px-3 py-1.5 rounded bg-blue-600 text-white text-sm hover:bg-blue-700">
+                        <a href="{{ $file->file_url }}" download class="inline-flex items-center px-3 py-1.5 rounded bg-blue-600 text-white text-sm hover:bg-blue-700">
                             {{ $file->title ?: basename($file->file) }}
                         </a>
                     @endforeach
@@ -40,7 +40,7 @@
                         <div class="font-medium mb-1 text-sm">{{ __('platform::common.attachments') }}</div>
                         <div class="flex flex-wrap gap-2">
                             @foreach($replay->files as $file)
-                                <a href="{{ \Illuminate\Support\Facades\Storage::url($file->file) }}" download class="inline-flex items-center px-3 py-1.5 rounded bg-blue-600 text-white text-sm hover:bg-blue-700">
+                                <a href="{{ $file->file_url }}" download class="inline-flex items-center px-3 py-1.5 rounded bg-blue-600 text-white text-sm hover:bg-blue-700">
                                     {{ $file->title ?: basename($file->file) }}
                                 </a>
                             @endforeach
