@@ -242,4 +242,5 @@ return [
     'clear_cache' => 'Clear Cache',
     'cache_cleared' => 'Cache cleared.',
     'attachments' => 'Attachments',
+    'download' => 'Download',
 ];
