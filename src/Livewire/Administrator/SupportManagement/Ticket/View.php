@@ -40,14 +40,14 @@ class View extends Component
         $this->body = '';
 
         // Refresh ticket with all relations to show the new replay
-        $this->ticket = Ticket::with(['user', 'replays.user', 'replays.files', 'files'])->findOrFail($this->ticket->id);
+        $this->ticket = Ticket::with(['user', 'replays', 'replays.user', 'replays.files', 'files'])->findOrFail($this->ticket->id);
         $this->dispatch('administrator.support-management.ticket.view:replays');
         // Optionally dispatch a browser event or flash message
         Toaster::success(__('platform::common.relayed'));
     }
 
-    #[Computed]
     #[On('administrator.support-management.ticket.view:replays')]
+    #[Computed]
     public function replays()
     {
         return $this->ticket->replays()->with(['user', 'files'])->latest()->get();
