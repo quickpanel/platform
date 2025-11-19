@@ -4,6 +4,7 @@ namespace QuickPanel\Platform\Livewire\Administrator\SupportManagement\Ticket;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request as HttpRequest;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Masmerise\Toaster\Toaster;
@@ -42,6 +43,12 @@ class View extends Component
 
         // Optionally dispatch a browser event or flash message
         Toaster::success(__('platform::common.relayed'));
+    }
+
+    #[Computed]
+    public function replays()
+    {
+        return $this->ticket->replays()->with(['user', 'files'])->latest()->get();
     }
 
     public function render()

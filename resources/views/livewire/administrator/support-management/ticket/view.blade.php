@@ -17,7 +17,7 @@
                 <div class="flex flex-wrap gap-2">
                     @foreach($ticket->files as $file)
                         @if($file->isImage())
-                            <button 
+                            <button
                                 type="button"
                                 x-on:click="imageModal = { open: true, url: '{{ $file->file_url }}', title: '{{ addslashes($file->title ?: basename($file->file)) }}' }"
                                 class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors"
@@ -25,9 +25,9 @@
                                 {{ $file->title ?: basename($file->file) }}
                             </button>
                         @else
-                            <a 
-                                href="{{ $file->file_url }}" 
-                                download 
+                            <a
+                                href="{{ $file->file_url }}"
+                                download
                                 class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors"
                             >
                                 {{ $file->title ?: basename($file->file) }}
@@ -42,7 +42,7 @@
     <!-- Replays list -->
     <div class="space-y-4">
         <div class="text-md font-semibold text-gray-900 dark:text-white">{{ __('platform::common.replies') }}</div>
-        @forelse($ticket->replays as $replay)
+        @forelse($this->replays as $replay)
             <x-flowbite-ui::card class="space-y-2">
                 <div class="text-sm text-gray-600 dark:text-gray-400">
                     {{ optional($replay->user)->name }} • {{ $replay->created_at?->format('Y-m-d H:i') }}
@@ -55,7 +55,7 @@
                         <div class="flex flex-wrap gap-2">
                             @foreach($replay->files as $file)
                                 @if($file->isImage())
-                                    <button 
+                                    <button
                                         type="button"
                                         x-on:click="imageModal = { open: true, url: '{{ $file->file_url }}', title: '{{ addslashes($file->title ?: basename($file->file)) }}' }"
                                         class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors"
@@ -63,9 +63,9 @@
                                         {{ $file->title ?: basename($file->file) }}
                                     </button>
                                 @else
-                                    <a 
-                                        href="{{ $file->file_url }}" 
-                                        download 
+                                    <a
+                                        href="{{ $file->file_url }}"
+                                        download
                                         class="inline-flex items-center px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors"
                                     >
                                         {{ $file->title ?: basename($file->file) }}
@@ -86,13 +86,13 @@
         <form class="space-y-3">
             <div>
                 <label class="block text-sm font-medium mb-1 text-gray-900 dark:text-white">{{ __('platform::common.message') }}</label>
-                <textarea 
-                    wire:model.defer="body" 
-                    rows="5" 
+                <textarea
+                    wire:model.defer="body"
+                    rows="5"
                     class="w-full border border-gray-300 rounded-lg p-2 bg-white text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 ></textarea>
-                @error('body') 
-                    <div class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</div> 
+                @error('body')
+                    <div class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</div>
                 @enderror
             </div>
             <div class="flex justify-end">
@@ -117,7 +117,7 @@
 
         <!-- Panel -->
         <div
-            x-show="imageModal.open" 
+            x-show="imageModal.open"
             x-transition
             x-on:click="imageModal.open = false"
             class="relative flex min-h-screen items-center justify-center p-4"
@@ -132,8 +132,8 @@
 
                 <!-- Image Content -->
                 <div class="mt-2">
-                    <img 
-                        :src="imageModal.url" 
+                    <img
+                        :src="imageModal.url"
                         :alt="imageModal.title"
                         class="max-w-full h-auto rounded-lg"
                     />
@@ -141,16 +141,16 @@
 
                 <!-- Buttons -->
                 <div class="mt-6 flex justify-end space-x-2">
-                    <button 
-                        type="button" 
-                        x-on:click="imageModal.open = false" 
+                    <button
+                        type="button"
+                        x-on:click="imageModal.open = false"
                         class="relative flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-transparent bg-transparent px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                     >
                         {{ __('platform::common.close') }}
                     </button>
 
-                    <a 
-                        :href="imageModal.url" 
+                    <a
+                        :href="imageModal.url"
                         download
                         x-on:click="imageModal.open = false"
                         class="relative flex items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-transparent bg-gray-800 dark:bg-gray-700 px-4 py-2 text-white hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors"
