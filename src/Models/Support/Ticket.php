@@ -18,7 +18,7 @@ class Ticket extends Model
 
     public function replays()
     {
-        return $this->hasMany(TicketReplay::class, 'ticket_id', 'id');
+        return $this->hasMany(TicketReplay::class, 'ticket_id', 'id')->orderBy('created_at', 'desc');
     }
 
     public function files()
