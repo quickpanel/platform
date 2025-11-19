@@ -18,7 +18,7 @@ class View extends Component
 
     public function mount(int $ticketId)
     {
-        $this->ticket = Ticket::with(['user', 'replays.files', 'files'])->findOrFail($ticketId);
+        $this->ticket = Ticket::with(['user', 'replays.user', 'replays.files', 'files'])->findOrFail($ticketId);
     }
 
     public function submitReplay()
@@ -34,11 +34,11 @@ class View extends Component
         $replay->ip = request()->ip();
         $replay->save();
 
-        // Refresh ticket with relations to show the new replay
-        $this->ticket->refresh()->load(['user', 'replays.files', 'files']);
-
         // Reset form
         $this->body = '';
+
+        // Refresh ticket with all relations to show the new replay
+        $this->ticket = Ticket::with(['user', 'replays.user', 'replays.files', 'files'])->findOrFail($this->ticket->id);
 
         // Optionally dispatch a browser event or flash message
         Toaster::success(__('platform::common.relayed'));
