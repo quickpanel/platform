@@ -39,6 +39,26 @@
         @endif
     </div>
 
+    <!-- Reply form -->
+    <x-flowbite-ui::card>
+        <form class="space-y-3">
+            <div>
+                <label class="block text-sm font-medium mb-1 text-gray-900 dark:text-white">{{ __('platform::common.message') }}</label>
+                <textarea
+                    wire:model.defer="body"
+                    rows="5"
+                    class="w-full border border-gray-300 rounded-lg p-2 bg-white text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                ></textarea>
+                @error('body')
+                <div class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="flex justify-end">
+                <x-flowbite-ui::button wire:click="submitReplay" type="submit" variant="solid" color="primary">{{ __('platform::common.send') }}</x-flowbite-ui::button>
+            </div>
+        </form>
+    </x-flowbite-ui::card>
+
     <!-- Replays list -->
     <div class="space-y-4">
         <div class="text-md font-semibold text-gray-900 dark:text-white">{{ __('platform::common.replies') }}</div>
@@ -80,26 +100,6 @@
             <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('platform::common.no_data_found') }}</div>
         @endforelse
     </div>
-
-    <!-- Reply form -->
-    <x-flowbite-ui::card>
-        <form class="space-y-3">
-            <div>
-                <label class="block text-sm font-medium mb-1 text-gray-900 dark:text-white">{{ __('platform::common.message') }}</label>
-                <textarea
-                    wire:model.defer="body"
-                    rows="5"
-                    class="w-full border border-gray-300 rounded-lg p-2 bg-white text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                ></textarea>
-                @error('body')
-                    <div class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="flex justify-end">
-                <x-flowbite-ui::button wire:click="submitReplay" type="submit" variant="solid" color="primary">{{ __('platform::common.send') }}</x-flowbite-ui::button>
-            </div>
-        </form>
-    </x-flowbite-ui::card>
 
     <!-- Image Modal -->
     <div
