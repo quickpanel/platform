@@ -48,4 +48,16 @@ class TicketFile extends Model
             }
         });
     }
+
+    public function isImage(): bool
+    {
+        if (empty($this->file)) {
+            return false;
+        }
+
+        $extension = strtolower(pathinfo($this->file, PATHINFO_EXTENSION));
+        $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg'];
+
+        return in_array($extension, $imageExtensions);
+    }
 }
