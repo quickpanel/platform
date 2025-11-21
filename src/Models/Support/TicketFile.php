@@ -36,15 +36,7 @@ class TicketFile extends Model
     {
         // Always return an Attribute instance; compute value conditionally inside the accessor
         return Attribute::get(function () {
-            if (!Auth::check()) {
-                return null;
-            }
-
             if (empty($this->file)) {
-                return null;
-            }
-
-            if (Auth::id() == $this->user_id) {
                 return null;
             }
 
