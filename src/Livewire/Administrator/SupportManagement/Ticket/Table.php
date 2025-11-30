@@ -52,7 +52,7 @@ final class Table extends PowerGridComponent
             ->add('id')
             ->add('title')
             ->add('status')
-            ->add('email', fn (Ticket $model) => $model->user->email)
+            ->add('email', fn (Ticket $model) => $model->user->email ?? $model->user->mobile ?? $model->user->name ?? '')
             ->add('created_at_formatted', fn (Ticket $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }
 
