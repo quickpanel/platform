@@ -36,7 +36,7 @@ final class UnreadTable extends PowerGridComponent
     public function datasource(): Builder
     {
         return Ticket::query()->with('user')
-            ->where('status', 'user')
+            ->whereIn('status', ['user', 'new'])
             ->orderBy('id', 'desc');
     }
 

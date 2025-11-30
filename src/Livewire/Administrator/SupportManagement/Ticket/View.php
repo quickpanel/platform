@@ -39,6 +39,9 @@ class View extends Component
         // Reset form
         $this->body = '';
 
+        $this->ticket->status = 'answered';
+        $this->ticket->save();
+
         // Refresh ticket with all relations to show the new replay
         $this->ticket = Ticket::with(['user', 'replays', 'replays.user', 'replays.files', 'files'])->findOrFail($this->ticket->id);
         $this->dispatch('administrator.support-management.ticket.view:replays');
