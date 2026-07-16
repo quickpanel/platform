@@ -13,7 +13,18 @@ class Ticket extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class)->withTrashed();
+        $relation = $this->belongsTo(User::class)->withDefault(function (User $user) {
+            $label = __('platform::common.deleted_user');
+            $user->name = $label;
+            $user->email = $label;
+            $user->mobile = $label;
+        });
+
+        if (in_array(SoftDeletes::class, class_uses_recursive(User::class), true)) {
+            $relation->withTrashed();
+        }
+
+        return $relation;
     }
 
     public function replays()

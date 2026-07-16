@@ -211,6 +211,7 @@ return [
     'unread' => 'خوانده‌نشده',
     'status' => 'وضعیت',
     'deleted' => 'حذف شد.',
+    'deleted_user' => 'کاربر حذف‌شده',
     'created' => 'ایجاد شد.',
     'updated' => 'به‌روزرسانی شد.',
     'restored' => 'بازیابی شد.',

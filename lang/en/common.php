@@ -211,6 +211,7 @@ return [
     'unread' => 'Unread',
     'status' => 'Status',
     'deleted' => 'Deleted.',
+    'deleted_user' => 'Deleted user',
     'created' => 'Created.',
     'updated' => 'Updated.',
     'restored' => 'Restored.',
